@@ -37,7 +37,7 @@ export default function App() {
 
   return (
     <div>
-      {isLoading && <LoadingScreen />}
+      {isLoading && <LoadingScreen progress={loadingProgress} />}
       <main className="min-h-screen bg-[#f8fbfd] text-slate-900">
         <Header />
         <HomeSection />

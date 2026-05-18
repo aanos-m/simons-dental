@@ -1,6 +1,10 @@
 import logoPath from "../assets/logo2.png";
 
-export default function LoadingScreen() {
+type Props = {
+  progress?: number;
+};
+
+export default function LoadingScreen({ progress = 0 }: Props) {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#f8fbfd]">
       <div className="flex flex-col items-center gap-6">
@@ -22,7 +26,10 @@ export default function LoadingScreen() {
         </div>
 
         <div className="h-1.5 w-48 overflow-hidden rounded-full bg-cyan-100">
-          <div className="h-full w-2/3 animate-pulse rounded-full bg-cyan-900" />
+          <div
+            className="h-full rounded-full bg-cyan-900 transition-all"
+            style={{ width: `${Math.max(0, Math.min(100, progress))}%` }}
+          />
         </div>
       </div>
     </div>
